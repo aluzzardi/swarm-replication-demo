@@ -25,23 +25,23 @@
                     <div class="header">
                         <%= Address %>
                     </div>
-                    <div class="meta">
-                            <% if (Role == 'replica') { %>
-                                Forwarding to <b><%= Primary %></b>
-                            <% } else { %>
-                                &nbsp;
-                            <% } %>
+                    <div class="description">
+                        <div class="ui center aligned inverted segment <%
+                                if (Error) {
+                                    print('red');
+                                } else {
+                                    print(Role == 'primary' ? 'green' : 'blue');
+                                } %>">
+                                <%= Error ? "Dead" : s(Role).capitalize().value() %>
+                        </div>
                     </div>
                 </div>
                 <div class="extra content">
-                    <div class="ui center aligned inverted segment <%
-                            if (Error) {
-                                print('red');
-                            } else {
-                                print(Role == 'primary' ? 'green' : 'blue');
-                            } %>">
-                            <%= Error ? "Dead" : s(Role).capitalize().value() %>
-                    </div>
+                    <% if (Role == 'replica') { %>
+                        Forwarding to <b><%= Primary %></b>
+                    <% } else { %>
+                        &nbsp;
+                    <% } %>
                 </div>
             </div>
         </script>
