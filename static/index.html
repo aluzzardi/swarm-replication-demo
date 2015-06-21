@@ -8,13 +8,26 @@
         <script src="./demo.js"></script>
 
         <link rel="stylesheet" type="text/css" href="./dist/semantic.min.css" />
+
+        <style>
+            html, body {
+               height: 100%;
+            }
+
+            html {
+                   display: table;
+                      margin: auto;
+            }
+
+            body {
+                   display: table-cell;
+                      vertical-align: middle;
+            }
+        </style>
     </head>
 
     <body>
-        <div class="ui">
-            <div id="status" class="ui cards">
-            </div>
-        </div>
+        <div id="status" class="ui cards"></div>
 
         <script id="card-tpl" type="text/x-custom-template">
             <div class="card">
